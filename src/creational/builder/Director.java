@@ -13,11 +13,4 @@ public class Director {
         .installSepticTank("Septic tank that drains into neighbours. Because rich don't deal with that").getHouse();
 
     }
-
-    public static void main(String[] args) {
-        HouseBuilder houseBuilder = new HouseBuilderImpl();
-        Director director = new Director(houseBuilder);
-        House builtHouse = director.buildRichAndAffluentHouse();
-        System.out.println(builtHouse);
-    }
 }
