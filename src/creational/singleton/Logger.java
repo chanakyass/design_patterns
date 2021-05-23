@@ -1,6 +1,8 @@
 package creational.singleton;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 Singleton pattern is used when only single instance of a class is required to be used by all dependent instances to avoid resource burden.
@@ -20,8 +22,8 @@ Solution: Use readResolve() method
         return instance;
     }
 
-3) Cloning is a concept to create duplicate objects. Using clone we can create copy of object. Suppose, we ceate clone of a singleton object,
-then it wil create a copy that is there are two instances of a singleton class, hence the class is no more singleton.
+3) Cloning is a concept to create duplicate objects. Using clone we can create copy of object. Suppose, we create clone of a singleton object,
+then it will create a copy that is there are two instances of a singleton class, hence the class is no more singleton.
 
 Solution: Override clone method of object for that class and throw CloneNotSupportedException
 @Override
@@ -96,6 +98,25 @@ class Main {
         logger.logOutput("Hello!");
         logger.logOutput("How are you");
         System.out.println(logger.getLogs());
+
+        Map<Integer, Integer> map = new HashMap<>(Map.of(1, 2, 3, 4, 5, 6));
+
+        new Thread(() -> {
+            try {
+                for (Map.Entry<Integer, Integer> integerIntegerEntry : map.entrySet()) {
+                    System.out.println(integerIntegerEntry);
+                    Thread.sleep(1000);
+                }
+            }
+            catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }).start();
+
+
+        new Thread(() -> {
+            map.put(12,13);
+        }).start();
 
     }
 }

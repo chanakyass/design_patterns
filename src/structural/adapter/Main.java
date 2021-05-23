@@ -1,10 +1,13 @@
 package structural.adapter;
 /*
-It is used when out of two incompatible classes one wants to use the functionality of the other.
-We introduce a wrapper around the class that has already implemented the functionality which is known as an adapter
-which also is an implementation of the interface who's functionality is not implemented.
-So essentially adapter composes of the object who's functionality is known and provides implementation to the interface
-which needs to use the known functionality.
+
+Definition: Adapter pattern is used to create a wrapper of a class that implements an interface. The adapter composes of adaptee obj
+ and implements the mentioned interface functionality by mimicking the adaptee object.
+
+Problems solved:
+1) When two interfaces are incompatible and one of them wants to use a functionality that another offers.
+2) When a legacy library has a functionality you want to use you create an adapter that composes the legacy class object and use its functionality.
+
  */
 public class Main {
     public static void main(String[] args) {

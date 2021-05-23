@@ -1,8 +1,14 @@
 package structural.composite;
 
 /*
-Explanation: Composite design pattern used to represent objects as hierarchy where each member of hierarchy represents an abstraction of the one beneath
-and each of these granular objects can be combined to form compositions that provide abstraction to functionality of individual objects
+Explanation: Composite design pattern is basically an object that is composed of tree structures and
+this tree structure can be handled as if it were one single object. Basically if we ever want to execute a functionality over all the
+members of the tree, you need to call it only on the highest level and individual members of the tree will execute the function on their own
+and possibly provide an output considering of all of them.
+
+Problems solved -
+1) Allows a way to represent an object as tree structures.
+2) An operation on higher level in the hierarchy would uniformly perform the same operation at all levels below and collect the resultant.
 */
 
 public class Main {

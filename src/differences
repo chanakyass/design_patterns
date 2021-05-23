@@ -1,0 +1,7 @@
+Adapter vs Proxy - Both are mostly same, except that proxy has three types - virtual, remote and privacy.
+While adapter is used to mimic the behaviour of an incompatible but usable interface, proxy is used to mimic
+functionality in the above mentioned use cases.
+
+Bridge vs Strategy - Bridge is creational pattern while strategy is behavioural. Intent of bridge pattern is to split up a monolith two different hierarchies.
+Strategy is used to plug in different implementations of the composed class at run time which can be done by bridge as well but strategy is more related to
+changing behaviour at run time based on input.

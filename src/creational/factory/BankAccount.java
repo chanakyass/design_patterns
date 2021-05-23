@@ -1,6 +1,7 @@
 package creational.factory;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public abstract class BankAccount {
     private final String name;
@@ -31,26 +32,19 @@ public abstract class BankAccount {
         return balance;
     }
 
-    public abstract double calculateInterest();
-
-    public static BankAccount create(BankAccountType type, String name, LocalDate dateOfOpening, String cifCode, double balance){
-        BankAccount bankAccount;
-        switch(type){
-            case SAVINGS:
-                bankAccount = new SavingsAccount(name, dateOfOpening, cifCode, balance);
-                break;
-            case CURRENT:
-                bankAccount = new CurrentAccount(name, dateOfOpening, cifCode, balance);
-                break;
-            case CORPORATE:
-                bankAccount = new CorporateAccount(name, dateOfOpening, cifCode, balance);
-                break;
-            case VIRTUAL:
-                bankAccount = new VirtualAccount(name, dateOfOpening, cifCode, balance);
-                break;
-            default:
-                bankAccount = null;
-        }
-        return bankAccount;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BankAccount)) return false;
+        BankAccount that = (BankAccount) o;
+        return Double.compare(that.getBalance(), getBalance()) == 0
+                && getName().equals(that.getName()) && getDateOfOpening().equals(that.getDateOfOpening()) && getCifCode().equals(that.getCifCode());
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getDateOfOpening(), getCifCode(), getBalance());
+    }
+
+    public abstract double calculateInterest();
 }

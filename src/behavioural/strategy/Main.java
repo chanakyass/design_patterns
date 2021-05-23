@@ -10,13 +10,9 @@ And also when lot of switch case statements are present for different implementa
 
 public class Main {
     public static void main(String[] args) {
-        Robot robot = new Robot(new Run(), new SignLanguage(), new HighJump());
-        robot.move();
-        robot.jump();
+        Robot robot = RobotFactory.getRoboForRequirement("STEALTH");
         robot.speak();
-        Robot robot2 = Robot.robotBuilder().jumpBehaviour(new LongJump()).moveBehaviour(new Walk()).speakBehaviour(new NativeLanguage()).build();
-        robot2.move();
-        robot2.jump();
-        robot2.speak();
+        robot.jump();
+        robot.move();
     }
 }

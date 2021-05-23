@@ -12,7 +12,7 @@ Its another layer of abstraction.
 
 public class Main {
     public static void main(String[] args) {
-        BankAccount bankAccount = BankAccount.create(BankAccountType.VIRTUAL, "Chanakya", LocalDate.now(), "ABC", 1100.00);
+        BankAccount bankAccount = BankAccountFactory.create(BankAccountType.VIRTUAL, "Chanakya", LocalDate.now(), "ABC", 1100.00);
         System.out.println(bankAccount.calculateInterest());
     }
 }
